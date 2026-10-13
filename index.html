@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mood Garden is a private, browser-based mood journal for quick daily check-ins."
+    />
+    <meta name="theme-color" content="#f6f1e8" />
+    <title>Mood Garden — A gentle daily check-in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=DM+Serif+Display:ital@0;1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" aria-label="Mood Garden header">
+        <a class="brand" href="#top" aria-label="Mood Garden home">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>Mood Garden</span>
+        </a>
+        <p class="privacy-note">
+          <span aria-hidden="true">●</span> Private to this browser
+        </p>
+      </header>
+
+      <main id="top">
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow" id="today-label">A quiet moment for yourself</p>
+          <h1 id="page-title">How are you,<br /><em>really?</em></h1>
+          <p class="intro">
+            Take a breath. Choose what feels closest, add a thought if you want,
+            and let that be enough for today.
+          </p>
+        </section>
+
+        <section class="check-in-card" aria-labelledby="check-in-title">
+          <div class="card-heading">
+            <div>
+              <p class="step-label">01 — CHECK IN</p>
+              <h2 id="check-in-title">Pick your mood</h2>
+            </div>
+            <span class="required-note">Choose one</span>
+          </div>
+
+          <form id="mood-form" novalidate>
+            <fieldset class="mood-fieldset" aria-describedby="mood-error">
+              <legend class="sr-only">Choose your current mood</legend>
+              <div class="mood-grid">
+                <label class="mood-option">
+                  <input type="radio" name="mood" value="Radiant" data-emoji="☀️" />
+                  <span class="mood-tile">
+                    <span class="mood-emoji" aria-hidden="true">☀️</span>
+                    <span class="mood-name">Radiant</span>
+                  </span>
+                </label>
+                <label class="mood-option">
+                  <input type="radio" name="mood" value="Good" data-emoji="🌿" />
+                  <span class="mood-tile">
+                    <span class="mood-emoji" aria-hidden="true">🌿</span>
+                    <span class="mood-name">Good</span>
+                  </span>
+                </label>
+                <label class="mood-option">
+                  <input type="radio" name="mood" value="Steady" data-emoji="🌤️" />
+                  <span class="mood-tile">
+                    <span class="mood-emoji" aria-hidden="true">🌤️</span>
+                    <span class="mood-name">Steady</span>
+                  </span>
+                </label>
+                <label class="mood-option">
+                  <input type="radio" name="mood" value="Low" data-emoji="🌧️" />
+                  <span class="mood-tile">
+                    <span class="mood-emoji" aria-hidden="true">🌧️</span>
+                    <span class="mood-name">Low</span>
+                  </span>
+                </label>
+                <label class="mood-option">
+                  <input type="radio" name="mood" value="Heavy" data-emoji="🌙" />
+                  <span class="mood-tile">
+                    <span class="mood-emoji" aria-hidden="true">🌙</span>
+                    <span class="mood-name">Heavy</span>
+                  </span>
+                </label>
+              </div>
+              <p class="field-error" id="mood-error" role="alert"></p>
+            </fieldset>
+
+            <div class="note-field">
+              <div class="note-label-row">
+                <label for="note">Want to say more?</label>
+                <span>Optional</span>
+              </div>
+              <textarea
+                id="note"
+                name="note"
+                rows="4"
+                maxlength="220"
+                placeholder="A small thought, a win, or something weighing on you..."
+              ></textarea>
+              <p class="character-count"><span id="character-count">0</span>/220</p>
+            </div>
+
+            <button class="save-button" type="submit">
+              Save today's check-in <span aria-hidden="true">→</span>
+            </button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="history-section" aria-labelledby="history-title">
+          <div class="history-heading">
+            <div>
+              <p class="step-label">02 — LOOK BACK</p>
+              <h2 id="history-title">Your recent days</h2>
+            </div>
+            <p id="entry-count">0 check-ins</p>
+          </div>
+
+          <div class="empty-state" id="empty-state">
+            <span aria-hidden="true">❋</span>
+            <h3>Your garden is ready</h3>
+            <p>Your saved check-ins will appear here, one small moment at a time.</p>
+          </div>
+          <ol class="entry-list" id="entry-list" aria-label="Saved mood entries"></ol>
+        </section>
+      </main>
+
+      <footer>
+        <p>Made for slower moments.</p>
+        <p>Your entries never leave this device.</p>
+      </footer>
+    </div>
+  </body>
+</html>
