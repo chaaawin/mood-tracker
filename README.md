@@ -2,6 +2,8 @@
 
 Mood Garden is a small, private mood journal created for the Week 1 Personal Product assignment. It lets users choose how they feel, add an optional note, and look back at recent check-ins.
 
+**Live app:** <https://chaaawin.github.io/mood-tracker/>
+
 ## Features
 
 - Five mood choices with an optional written reflection
